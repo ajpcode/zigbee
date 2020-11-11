@@ -1,0 +1,14 @@
+#ifndef UBEE_CONF__H
+#define UBEE_CONF__H
+
+#ifndef CONFIG_UBEE_NETWORK_COORDINATOR
+ #define CONFIG_UBEE_NETWORK_COORDINATOR false
+#endif
+
+#ifndef CONFIG_UBEE_SECURITY_LEVEL
+ #define CONFIG_UBEE_SECURITY_LEVEL 0x5
+#endif
+
+
+
+#endif
