@@ -3,6 +3,8 @@
 
 #include <stdint.h>
 
+#include "app_values.h"
+
 struct address {
     /**
      * FIXME: I've just made this up!!
@@ -124,18 +126,6 @@ struct apsde_request {
 };
 
 
-enum apsde_confirm_status {
-    SUCCESS,
-    SUCCESS, 
-    NO_SHORT_ADDRESS, 
-    NO_BOUND_DEVICE, 
-    SECURITY_FAIL,
-    NO_ACK,
-    ASDU_TOO_LONG
-};
-
-
-
 /**
  * The primitive reports the results of a request to transfer a data PDU (ASDU)
  * from a local NHLE to one or 1496 more peer NHLEs.
@@ -191,18 +181,6 @@ struct apsde_confirm {
      * TODO: Verify this type!
      */
     uint32_t tx_time;
-};
-
-enum apsde_indication_status {
-    SUCCESS,
-    DEFRAG_UNSUPPORTED,
-    DEFRAG_DEFERRED,
-};
-
-enum apsde_decurity_status {
-    UNSECURED,
-    SECURED_NWK_KEY,
-    SECURED_LINK_KEY
 };
 
 struct apsde_indication {
@@ -290,14 +268,14 @@ struct apsde_indication {
      * Valid values: SUCCESS, DEFRAG_UNSUPPORTED, DEFRAG_DEFERRED or any
      *               status returned from the security pro-cessing of the frame
      */
-    enum apsde_indication_status status;
+    apsde_indication_status status;
 
     /**
      * UNSECURED if the ASDU was received without any security.
      * SECURED_NWK_KEY if the received ASDU was secured with the NWK key.
      * SECURED_LINK_KEY if the ASDU was secured with a link key.
      */
-    enum apsde_decurity_status security_status;
+    apsde_security_status security_status;
 
     /**
      * The link quality indication delivered by the NLDE.
