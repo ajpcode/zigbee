@@ -2,10 +2,10 @@
 #define UBEE__H
 
 // network layer
-#include "ubee/net.h"
+#include "ubee/nwk/nwk.h"
 
 // appliction layer
-#include "ubee/app.h"
+#include "ubee/app/app.h"
 
 
 #endif
